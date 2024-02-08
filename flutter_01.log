@@ -1,0 +1,107 @@
+Flutter crash report.
+Please report a bug at https://github.com/flutter/flutter/issues.
+
+## command
+
+flutter run --machine --start-paused -d windows --devtools-server-address http://127.0.0.1:9100/ --target lib\main.dart
+
+## exception
+
+_TypeError: type 'OSError' is not a subtype of type 'List<int>?' of 'function result'
+
+```
+#0      _FilterImpl.processed (dart:io-patch/filter_patch.dart)
+#1      _FilterSink.addSlice (dart:io/data_transformer.dart:505:29)
+#2      _FilterSink.add (dart:io/data_transformer.dart:489:5)
+#3      ZLibDecoder.convert (dart:io/data_transformer.dart:363:9)
+#4      inflateBuffer_ (package:archive/src/zlib/_inflate_buffer_io.dart:4:33)
+#5      inflateBuffer (package:archive/src/zlib/inflate_buffer.dart:6:10)
+#6      ArchiveFile.decompress (package:archive/src/archive_file.dart:154:22)
+#7      ArchiveFile.content (package:archive/src/archive_file.dart:125:7)
+#8      _WindowsUtils._unpackArchive (package:flutter_tools/src/base/os.dart:557:45)
+#9      _WindowsUtils.unzip (package:flutter_tools/src/base/os.dart:510:5)
+#10     ArtifactUpdater._downloadArchive (package:flutter_tools/src/cache.dart:1111:18)
+<asynchronous suspension>
+#11     EngineCachedArtifact.updateInner (package:flutter_tools/src/cache.dart:908:7)
+<asynchronous suspension>
+#12     CachedArtifact.update (package:flutter_tools/src/cache.dart:810:5)
+<asynchronous suspension>
+#13     Cache.updateAll (package:flutter_tools/src/cache.dart:677:9)
+<asynchronous suspension>
+#14     FlutterCommand.verifyThenRunCommand (package:flutter_tools/src/runner/flutter_command.dart:1519:7)
+<asynchronous suspension>
+#15     FlutterCommand.run.<anonymous closure> (package:flutter_tools/src/runner/flutter_command.dart:1336:27)
+<asynchronous suspension>
+#16     AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:150:19)
+<asynchronous suspension>
+#17     CommandRunner.runCommand (package:args/command_runner.dart:212:13)
+<asynchronous suspension>
+#18     FlutterCommandRunner.runCommand.<anonymous closure> (package:flutter_tools/src/runner/flutter_command_runner.dart:296:9)
+<asynchronous suspension>
+#19     AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:150:19)
+<asynchronous suspension>
+#20     FlutterCommandRunner.runCommand (package:flutter_tools/src/runner/flutter_command_runner.dart:244:5)
+<asynchronous suspension>
+#21     run.<anonymous closure>.<anonymous closure> (package:flutter_tools/runner.dart:91:9)
+<asynchronous suspension>
+#22     AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:150:19)
+<asynchronous suspension>
+#23     main (package:flutter_tools/executable.dart:91:3)
+<asynchronous suspension>
+```
+
+## flutter doctor
+
+```
+[!] Flutter (Channel unknown, 3.10.4, on Microsoft Windows [Version 10.0.22621.3007], locale en-IN)
+    ! Flutter version 3.10.4 on channel unknown at F:\flutter
+      Currently on an unknown channel. Run `flutter channel` to switch to an official channel.
+      If that doesn't fix the issue, reinstall Flutter by following instructions at https://flutter.dev/docs/get-started/install.
+    ! Unknown upstream repository.
+      Reinstall Flutter by following instructions at https://flutter.dev/docs/get-started/install.
+    • Framework revision 682aa387cf (8 months ago), 2023-06-05 18:04:56 -0500
+    • Engine revision 2a3401c9bb
+    • Dart version 3.0.3
+    • DevTools version 2.23.1
+    • If those were intentional, you can disregard the above warnings; however it is recommended to use "git" directly to perform update checks and upgrades.
+
+[✓] Windows Version (Installed version of Windows is version 10 or higher)
+
+[✓] Android toolchain - develop for Android devices (Android SDK version 34.0.0)
+    • Android SDK at C:\Users\sarta\AppData\Local\Android\sdk
+    • Platform android-34, build-tools 34.0.0
+    • Java binary at: C:\Program Files\Android\Android Studio\jbr\bin\java
+    • Java version OpenJDK Runtime Environment (build 17.0.6+0-b2043.56-9586694)
+    • All Android licenses accepted.
+
+[✓] Chrome - develop for the web
+    • Chrome at C:\Program Files\Google\Chrome\Application\chrome.exe
+
+[✗] Visual Studio - develop for Windows
+    ✗ Visual Studio not installed; this is necessary for Windows development.
+      Download at https://visualstudio.microsoft.com/downloads/.
+      Please install the "Desktop development with C++" workload, including all of its default components
+
+[✓] Android Studio (version 2022.2)
+    • Android Studio at C:\Program Files\Android\Android Studio
+    • Flutter plugin can be installed from:
+      🔨 https://plugins.jetbrains.com/plugin/9212-flutter
+    • Dart plugin can be installed from:
+      🔨 https://plugins.jetbrains.com/plugin/6351-dart
+    • Java version OpenJDK Runtime Environment (build 17.0.6+0-b2043.56-9586694)
+
+[✓] VS Code (version 1.86.0)
+    • VS Code at C:\Users\sarta\AppData\Local\Programs\Microsoft VS Code
+    • Flutter extension version 3.82.0
+
+[✓] Connected device (4 available)
+    • Android SDK built for x86 (mobile) • emulator-5554 • android-x86    • Android 11 (API 30) (emulator)
+    • Windows (desktop)                  • windows       • windows-x64    • Microsoft Windows [Version 10.0.22621.3007]
+    • Chrome (web)                       • chrome        • web-javascript • Google Chrome 121.0.6167.140
+    • Edge (web)                         • edge          • web-javascript • Microsoft Edge 121.0.2277.98
+
+[✓] Network resources
+    • All expected network resources are available.
+
+! Doctor found issues in 2 categories.
+```
